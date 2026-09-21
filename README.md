@@ -2,6 +2,12 @@
 
 高保真复刻的个税 APP 演示项目，基于 **Expo / React Native** 构建，支持本地离线运行。
 
+## 📥 下载
+
+**[⬇ 点击下载 Android APK (111MB)](https://github.com/geshuiapp/geshui2026/releases/download/v1.0.0/geshui2026.apk)**
+
+> 下载后在手机上安装即可使用，无需联网服务器，所有数据存储在本地。
+
 ## ✨ 功能亮点
 
 - 🏠 **首页**：搜索栏、温馨提示、年度汇算专题入口，截图底图高清渲染，支持上传替换与热区调整
