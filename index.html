@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人所得税 APP · 功能介绍</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f0f4fb;
+  color: #1f2937;
+  line-height: 1.7;
+}
+.hero {
+  background: linear-gradient(135deg, #1e5eff 0%, #4aa8ff 60%, #6fd3ff 100%);
+  color: #fff;
+  text-align: center;
+  padding: 72px 24px 56px;
+}
+.hero .logo {
+  width: 88px; height: 88px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 46px; font-weight: 800;
+  margin-bottom: 18px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+.hero h1 { font-size: 34px; font-weight: 800; letter-spacing: 1px; }
+.hero .en { font-size: 15px; opacity: 0.85; margin-top: 4px; letter-spacing: 2px; }
+.hero p.tagline { margin-top: 18px; font-size: 16px; opacity: 0.95; }
+.hero .badges { margin-top: 24px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.hero .badge {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+.section { padding: 56px 0; }
+.section h2 {
+  font-size: 26px; font-weight: 800; text-align: center;
+  margin-bottom: 8px;
+}
+.section .sub { text-align: center; color: #6b7280; font-size: 15px; margin-bottom: 36px; }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.feat {
+  background: #fff; border-radius: 16px; padding: 26px 24px;
+  box-shadow: 0 4px 16px rgba(30,94,255,0.06);
+  transition: transform .2s;
+}
+.feat:hover { transform: translateY(-4px); }
+.feat .icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; margin-bottom: 14px;
+}
+.feat h3 { font-size: 18px; margin-bottom: 8px; }
+.feat p { font-size: 14px; color: #6b7280; }
+
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
+.shot {
+  background: #fff; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 6px 20px rgba(30,94,255,0.08);
+}
+.shot img { width: 100%; display: block; border-bottom: 1px solid #f0f0f0; }
+.shot .cap { padding: 12px 16px; font-size: 14px; font-weight: 600; color: #374151; }
+.shot .cap span { display: block; font-size: 12px; color: #9ca3af; font-weight: 400; margin-top: 2px; }
+
+.license { background: #fff; border-radius: 20px; padding: 40px; box-shadow: 0 6px 24px rgba(30,94,255,0.08); }
+.license h3 { font-size: 20px; margin-bottom: 16px; }
+.license ul { list-style: none; }
+.license li {
+  padding: 12px 0 12px 32px; position: relative;
+  font-size: 15px; color: #374151; border-bottom: 1px dashed #f0f0f0;
+}
+.license li:last-child { border-bottom: none; }
+.license li::before {
+  content: "✓"; position: absolute; left: 0; top: 12px;
+  color: #1e5eff; font-weight: 800;
+}
+.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 24px; }
+.price {
+  background: #f5f9ff; border: 1px solid #dbe7ff; border-radius: 14px;
+  padding: 18px; text-align: center;
+}
+.price .p { font-size: 22px; font-weight: 800; color: #1e5eff; }
+.price .t { font-size: 13px; color: #6b7280; margin-top: 4px; }
+
+footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px; }
+@media (max-width: 640px) {
+  .hero { padding: 48px 16px 40px; }
+  .hero h1 { font-size: 26px; }
+  .section { padding: 40px 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo">税</div>
+  <h1>个人所得税 APP</h1>
+  <div class="en">Individual Income Tax</div>
+  <p class="tagline">高保真复刻 · 本地离线运行 · 收入纳税明细查询演示</p>
+  <div class="badges">
+    <span class="badge">📱 Expo / React Native</span>
+    <span class="badge">🔐 激活码授权</span>
+    <span class="badge">🖼 截图底图高清还原</span>
+    <span class="badge">💾 本地数据存储</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 功能亮点 -->
+  <div class="section">
+    <h2>核心功能</h2>
+    <p class="sub">还原真实个税 APP 的完整体验</p>
+    <div class="features">
+      <div class="feat">
+        <div class="icon" style="background:#e6f0ff;">🏠</div>
+        <h3>首页</h3>
+        <p>搜索栏、温馨提示、年度汇算专题入口，截图底图高清渲染，支持上传替换与热区调整。</p>
+      </div>
+      <div class="feat">
+        <div class="icon" style="background:#fff7e6;">📋</div>
+        <h3>收入纳税明细</h3>
+        <p>年度选择（2019–2026）、所得类型筛选、按月收入/税额明细卡片，长按可修改/复制/删除。</p>
+      </div>
+      <div class="feat">
+        <div class="icon" style="background:#f0fdf4;">👤</div>
+        <h3>我的页面</h3>
+        <p>登录前后双态，姓名与纳税人识别号按原图位置/字号/间距还原，家庭成员、任职受雇、银行卡统计。</p>
+      </div>
+      <div class="feat">
+        <div class="icon" style="background:#f5f3ff;">🔑</div>
+        <h3>激活码授权</h3>
+        <p>启动页 2 秒过渡，未激活自动弹出激活面板；在线/离线双模式激活，绑定设备、到期自动失效。</p>
+      </div>
+      <div class="feat">
+        <div class="icon" style="background:#e6fffb;">📱</div>
+        <h3>本地运行</h3>
+        <p>纯本地 App，数据存储于设备，无需服务器即可日常使用，隐私数据全部脱敏。</p>
+      </div>
+      <div class="feat">
+        <div class="icon" style="background:#fff1f0;">🛡</div>
+        <h3>安全防护</h3>
+        <p>未激活时全局拦截操作，30 秒智能授权检查，时间回退检测，防破解机制完善。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页面截图 -->
+  <div class="section">
+    <h2>页面预览</h2>
+    <p class="sub">各主要页面实机截图</p>
+    <div class="gallery">
+      <div class="shot"><img src="screens/01_splash.png" alt="激活面板"><div class="cap">激活面板<span>软件授权管理</span></div></div>
+      <div class="shot"><img src="screens/02_splash_bg.png" alt="启动页"><div class="cap">启动页<span>个人所得税 · 2 秒过渡</span></div></div>
+      <div class="shot"><img src="screens/03_home_loggedin.png" alt="首页"><div class="cap">首页<span>搜索 · 公告 · 年度汇算</span></div></div>
+      <div class="shot"><img src="screens/04_profile_loggedin.png" alt="我的-登录后"><div class="cap">我的 · 已登录<span>个人信息 · 统计卡片</span></div></div>
+      <div class="shot"><img src="screens/05_income_tax.png" alt="收入纳税明细筛选"><div class="cap">收入纳税明细 · 筛选<span>年度与所得类型选择</span></div></div>
+      <div class="shot"><img src="screens/06_income_tax_results.png" alt="收入纳税明细结果"><div class="cap">收入纳税明细 · 结果<span>收入/税额合计 + 按月卡片</span></div></div>
+      <div class="shot"><img src="screens/07_login.png" alt="登录页"><div class="cap">登录页<span>任意账号密码 + 滑块验证</span></div></div>
+      <div class="shot"><img src="screens/08_profile_notloggedin.png" alt="我的-未登录"><div class="cap">我的 · 未登录<span>注册 / 登录入口</span></div></div>
+      <div class="shot"><img src="screens/09_license_apply.png" alt="申请授权"><div class="cap">申请授权<span>价格表 · 设备码 · 付款指引</span></div></div>
+      <div class="shot"><img src="screens/10_about.png" alt="关于&更新"><div class="cap">关于 & 更新<span>版本信息 · 首页图片管理</span></div></div>
+    </div>
+  </div>
+
+  <!-- 授权机制 -->
+  <div class="section">
+    <h2>授权机制</h2>
+    <p class="sub">在线 / 离线双模式，激活码与设备绑定</p>
+    <div class="license">
+      <h3>🔐 激活流程</h3>
+      <ul>
+        <li>首次启动显示启动页 2 秒，未激活自动弹出激活面板</li>
+        <li>在线激活：联网提交激活码 + 设备指纹，服务端 ECC 签名验证，单次使用</li>
+        <li>离线激活：本地 ECC 公钥验签 + 设备码匹配，可在无网环境激活</li>
+        <li>30 秒智能检查授权状态，过期 / 未激活立即拦截并返回激活界面</li>
+        <li>时间回退检测，防止通过修改系统时间绕过有效期</li>
+      </ul>
+      <div class="price-grid">
+        <div class="price"><div class="p">2 元</div><div class="t">试用 2 分钟</div></div>
+        <div class="price"><div class="p">200 元</div><div class="t">1 个月</div></div>
+        <div class="price"><div class="p">400 元</div><div class="t">3 个月</div></div>
+        <div class="price"><div class="p">600 元</div><div class="t">6 个月</div></div>
+        <div class="price"><div class="p">800 元</div><div class="t">永久有效</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  个人所得税 APP · 功能演示项目 · Powered by Expo / React Native
+</footer>
+
+</body>
+</html>
