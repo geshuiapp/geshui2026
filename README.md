@@ -2,11 +2,11 @@
 
 高保真复刻的个税 APP 演示项目，基于 **Expo / React Native** 构建，支持本地离线运行。
 
-**当前版本：v1.2.0**
+**当前版本：v1.3.0**
 
 ## 📥 下载
 
-**[⬇ 点击下载 Android APK v1.2.0 (111MB)](https://github.com/geshuiapp/geshui2026/releases/download/v1.2.0/geshui_v1.2.0.apk)**
+**[⬇ 点击下载 Android APK v1.3.0 (111MB)](https://github.com/geshuiapp/geshui2026/releases/download/v1.3.0/geshui_v1.3.0.apk)**
 
 > 下载后在手机上安装即可使用，无需联网服务器，所有数据存储在本地。
 
@@ -18,9 +18,11 @@
 
 ## 📝 更新日志
 
+### v1.3.0
+- 权限大幅精简：移除相册、录音、相机权限声明（Android 13+ 选图走系统 Photo Picker，无需权限）
+- 降低杀毒软件误报概率（只剩 INTERNET 等系统必需权限）
+
 ### v1.2.0
-- 版本升级至 1.2.0
-- 清理多余权限：移除麦克风和外部存储权限，避免安全软件误报
 - 支持多红包码输入：400元套餐2个红包、600元3个、800元4个
 - 新增防刷限制：同设备每天5次申请上限、同IP每天20次
 - PushPlus微信通知：新申请即时推送
