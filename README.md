@@ -72,17 +72,17 @@
 
 | 页面 | 截图 |
 |------|------|
-| 启动页 | ![启动页](screens/02_splash_bg.png) |
-| 激活面板 | ![激活面板](screens/01_splash.png) |
+| 启动页 | ![启动页](screens/35_splash.png) |
+| 免责声明 | ![免责声明](screens/34_disclaimer.png) |
 | 首页 | ![首页](screens/03_home_loggedin.png) |
 | 我的 · 登录后 | ![我的-登录后](screens/04_profile_loggedin.png) |
-| 我的 · 未登录 | ![我的-未登录](screens/08_profile_notloggedin.png) |
 | 登录页 | ![登录页](screens/07_login.png) |
-| 收入纳税明细 · 筛选 | ![筛选](screens/05_income_tax.png) |
-| 收入纳税明细 · 结果 | ![结果](screens/06_income_tax_results.png) |
+| 收入纳税明细 · 查询 | ![查询](screens/15_income_query.png) |
+| 收入纳税明细 · 结果 | ![结果](screens/16_income_results.png) |
+| 明细详情 | ![详情](screens/17_income_detail.png) |
 | 申请授权 | ![申请授权](screens/09_license_apply.png) |
-| 意见反馈 | ![意见反馈](screens/11_feedback.png) |
-| 关于 & 更新 | ![关于](screens/10_about.png) |
+| 关于 & 更新 | ![关于](screens/28_about.png) |
+| 意见反馈 | ![意见反馈](screens/30_feedback.png) |
 
 ## ⚠️ 免责声明
 
