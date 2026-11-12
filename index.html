@@ -109,6 +109,38 @@ body {
 .guide .faq-q { font-weight: 600; color: #1f2937; margin-bottom: 6px; }
 .guide .faq-a { color: #6b7280; font-size: 14px; }
 
+/* ===== 免责提示（醒目） ===== */
+.notice-banner {
+  display: flex; align-items: flex-start; gap: 16px;
+  background: linear-gradient(180deg, #fff9e8 0%, #fff4d6 100%);
+  border: 1px solid #ffe0a3;
+  border-left: 5px solid #faad14;
+  border-radius: 14px;
+  padding: 18px 22px;
+  box-shadow: 0 8px 24px rgba(250,173,20,.14);
+  margin: 26px 0 0;
+}
+.notice-banner .nb-icon { font-size: 25px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+.notice-banner .nb-main { flex: 1; min-width: 0; }
+.notice-banner .nb-title {
+  font-size: 16px; font-weight: 800; color: #9a5b00;
+  margin-bottom: 7px; letter-spacing: .3px;
+}
+.notice-banner .nb-text { font-size: 14px; color: #6b5320; line-height: 1.9; }
+.notice-banner .nb-text strong { color: #9a5b00; }
+.notice-banner .nb-link {
+  flex-shrink: 0; align-self: center;
+  background: #faad14; color: #fff; font-weight: 700; font-size: 14px;
+  padding: 11px 22px; border-radius: 999px; text-decoration: none;
+  white-space: nowrap; box-shadow: 0 4px 12px rgba(250,173,20,.32);
+}
+.notice-banner .nb-link:hover { background: #e59a08; }
+@media (max-width: 640px) {
+  .notice-banner { flex-wrap: wrap; padding: 16px 18px; gap: 12px; }
+  .notice-banner .nb-text { font-size: 13.5px; }
+  .notice-banner .nb-link { width: 100%; text-align: center; align-self: stretch; }
+}
+
 footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px; }
 @media (max-width: 640px) {
   .hero { padding: 48px 16px 40px; }
@@ -135,6 +167,18 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
 </div>
 
 <div class="container">
+
+  <!-- 免责提示（醒目） -->
+  <div class="notice-banner">
+    <div class="nb-icon">⚠️</div>
+    <div class="nb-main">
+      <div class="nb-title">免责提示 · 非官方学习工具</div>
+      <div class="nb-text">
+        本软件为个人独立开发的非官方学习辅助工具，<strong>与国家税务总局及各级税务机关无任何关联</strong>，不能替代官方办税渠道。所有计算结果<strong>仅供参考</strong>，不作为纳税申报、汇算清缴或财务记账的依据，最终以税务机关认定为准。本软件<strong>仅供个人学习使用</strong>，严禁转售、二次分发、公开传播，严禁用于虚假申报、虚增扣除、骗取退税等任何违法违规用途。
+      </div>
+    </div>
+    <a href="./disclaimer.html" class="nb-link">查看完整免责声明 →</a>
+  </div>
 
   <!-- 功能亮点 -->
   <div class="section">
@@ -259,10 +303,13 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
 </div>
 
 <footer>
-  <div>个人所得税 APP · 功能演示项目</div>
-  <div style="max-width:780px;margin:12px auto 0;line-height:1.9;color:#8a94a6;">
-    本软件为个人独立开发的非官方学习工具，与国家税务总局及各级税务机关无任何关联；计算结果仅供参考，不构成纳税申报依据；仅供个人学习使用，禁止转售、二次分发、传播及用于任何违法违规用途。
-    <a href="./disclaimer.html" style="color:#1e5eff;text-decoration:none;font-weight:700;white-space:nowrap;">查看完整免责声明 →</a>
+  <div>个人所得税 APP · 功能演示项目 · 非官方学习工具</div>
+  <div style="margin-top:10px;">
+    <a href="./disclaimer.html" style="color:#1e5eff;text-decoration:none;font-weight:700;">免责声明</a>
+    <span style="margin:0 8px;color:#d0d5dd;">·</span>
+    <a href="https://github.com/geshuiapp/geshui2026" target="_blank" rel="noopener" style="color:#6b7280;text-decoration:none;">GitHub</a>
+    <span style="margin:0 8px;color:#d0d5dd;">·</span>
+    <a href="mailto:531707@gmail.com" style="color:#6b7280;text-decoration:none;">531707@gmail.com</a>
   </div>
 </footer>
 
