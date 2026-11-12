@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>授权状态查询 · 个人所得税 APP</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f0f4fb;
+  color: #1f2937;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+.topbar {
+  background: linear-gradient(135deg, #1e5eff 0%, #4aa8ff 60%, #6fd3ff 100%);
+  color: #fff;
+  padding: 28px 20px 34px;
+  text-align: center;
+}
+.topbar h1 { font-size: 24px; font-weight: 800; }
+.topbar p { font-size: 14px; opacity: .9; margin-top: 4px; }
+.topbar a {
+  display: inline-block;
+  margin-top: 14px;
+  color: #fff;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 999px;
+  padding: 5px 16px;
+}
+main { max-width: 640px; margin: 0 auto; padding: 24px 20px 60px; }
+.card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 24px rgba(30,94,255,.08);
+  margin-bottom: 18px;
+}
+label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+input {
+  width: 100%;
+  padding: 13px 14px;
+  font-size: 15px;
+  border: 1px solid #dfe4ee;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color .2s;
+}
+input:focus { border-color: #1e5eff; }
+button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background: #1e5eff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity .2s;
+}
+button:disabled { opacity: .6; cursor: not-allowed; }
+.hint { font-size: 13px; color: #6b7280; margin-top: 10px; }
+#result { display: none; }
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.status-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.status-active { background: #e8f7ee; color: #16994a; }
+.status-expired { background: #fdecec; color: #d93025; }
+.status-permanent { background: #eef2ff; color: #1e5eff; }
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f2f4f8;
+  font-size: 15px;
+}
+.info-row:last-child { border-bottom: none; }
+.info-row .k { color: #6b7280; }
+.info-row .v { font-weight: 700; text-align: right; }
+.msg { font-size: 14px; color: #6b7280; }
+.msg.error { color: #d93025; }
+.steps { font-size: 13px; color: #6b7280; line-height: 2; }
+.steps b { color: #1f2937; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>授权状态查询</h1>
+  <p>输入设备码，查看当前授权是否有效、还剩多少天</p>
+  <a href="./index.html">← 返回首页</a>
+</div>
+
+<main>
+  <div class="card">
+    <label for="deviceId">设备码</label>
+    <input id="deviceId" placeholder="例如 3f2a1c8e-9d47-4b6a-8e15-6c0d2a7b5f31" autocomplete="off" spellcheck="false">
+    <button id="queryBtn" type="button">查询授权状态</button>
+    <div class="hint">设备码可在 App 的「申请授权」页面点击「复制设备码」获取。</div>
+  </div>
+
+  <div class="card" id="result">
+    <div class="status-row">
+      <span class="status-badge" id="statusBadge">—</span>
+      <span class="msg" id="statusText"></span>
+    </div>
+    <div id="infoRows"></div>
+  </div>
+
+  <div class="card">
+    <div class="steps">
+      <b>查询说明</b><br>
+      1. 授权与设备绑定，换设备后需要重新申请解绑。<br>
+      2. 首次激活后才有记录，未激活的设备会提示「暂未激活」。<br>
+      3. 每次续期后到期时间会延长，重新查询即可看到最新日期。<br>
+      4. 查询仅读取到期信息，不涉及账号、税务数据。
+    </div>
+  </div>
+</main>
+
+<script>
+const API = 'https://geshuiapp.pages.dev/api/query';
+
+const $device = document.getElementById('deviceId');
+const $btn = document.getElementById('queryBtn');
+const $result = document.getElementById('result');
+const $badge = document.getElementById('statusBadge');
+const $text = document.getElementById('statusText');
+const $rows = document.getElementById('infoRows');
+
+function fmtDate(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso);
+  const pad = n => String(n).padStart(2, '0');
+  return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+    ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+}
+
+function showMessage(msg, isError) {
+  $result.style.display = 'block';
+  $badge.className = 'status-badge';
+  $badge.textContent = isError ? '查询失败' : '未找到';
+  $badge.style.background = '#f2f4f8';
+  $badge.style.color = '#6b7280';
+  $text.textContent = msg;
+  $text.className = 'msg' + (isError ? ' error' : '');
+  $rows.innerHTML = '';
+}
+
+async function query() {
+  const deviceId = $device.value.trim();
+  if (!deviceId) {
+    showMessage('请先输入设备码', true);
+    return;
+  }
+  $btn.disabled = true;
+  $btn.textContent = '查询中…';
+  try {
+    const resp = await fetch(API + '?deviceId=' + encodeURIComponent(deviceId));
+    const data = await resp.json();
+    if (!data.success) {
+      showMessage(data.error || '查询失败，请稍后再试', true);
+      return;
+    }
+    if (!data.found) {
+      showMessage(data.message || '该设备暂未激活', false);
+      return;
+    }
+
+    const permanent = !!data.isPermanent;
+    const active = permanent || data.status === 'active';
+    $result.style.display = 'block';
+    $badge.className = 'status-badge ' + (permanent ? 'status-permanent' : (active ? 'status-active' : 'status-expired'));
+    $badge.textContent = permanent ? '永久有效' : (active ? '授权有效' : '已过期');
+    $text.className = 'msg';
+    $text.textContent = permanent ? '终身授权，无需续期' :
+      (active ? '剩余 ' + data.remainingDays + ' 天' : '授权已失效，需要续期');
+
+    const rows = [
+      ['到期时间', permanent ? '永久有效' : fmtDate(data.expiryDate)],
+      ['剩余天数', permanent ? '不限' : (active ? data.remainingDays + ' 天' : '已过期 ' + Math.abs(data.remainingDays) + ' 天')],
+      ['首次激活', data.activatedAt ? fmtDate(new Date(data.activatedAt).toISOString()) : '—'],
+      ['续期次数', (data.renewCount || 0) + ' 次']
+    ];
+    $rows.innerHTML = rows.map(r =>
+      '<div class="info-row"><span class="k">' + r[0] + '</span><span class="v">' + r[1] + '</span></div>'
+    ).join('');
+  } catch (e) {
+    showMessage('网络异常，请检查网络后重试', true);
+  } finally {
+    $btn.disabled = false;
+    $btn.textContent = '查询授权状态';
+  }
+}
+
+$btn.addEventListener('click', query);
+$device.addEventListener('keydown', e => { if (e.key === 'Enter') query(); });
+
+const preset = new URLSearchParams(location.search).get('deviceId');
+if (preset) { $device.value = preset; query(); }
+</script>
+</body>
+</html>
