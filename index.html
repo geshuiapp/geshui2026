@@ -152,6 +152,112 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
   .hero h1 { font-size: 26px; }
   .section { padding: 40px 0; }
 }
+/* ===== 全站交互总表（卖点区块） ===== */
+.interact-sec { padding: 48px 0 60px; }
+.ix-wrap {
+  position: relative; border-radius: 26px; padding: 46px 34px 30px;
+  background: radial-gradient(120% 90% at 50% 0%, #17336f 0%, #0b1c3f 46%, #060e22 100%);
+  color: #e6eefc; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(6,18,44,.38);
+}
+.ix-wrap::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(110,168,255,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110,168,255,.10) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 68%);
+  mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 68%);
+}
+.ix-glow {
+  position: absolute; left: 50%; top: -320px; width: 640px; height: 640px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(74,168,255,.5), transparent 62%);
+  filter: blur(12px); pointer-events: none;
+  animation: ixBreath 7s ease-in-out infinite;
+}
+@keyframes ixBreath {
+  0%, 100% { opacity: .5; transform: translateX(-50%) scale(.92); }
+  50% { opacity: .95; transform: translateX(-50%) scale(1.08); }
+}
+.ix-head { position: relative; text-align: center; }
+.ix-eyebrow { font-size: 11.5px; letter-spacing: 3px; color: #6ea9ff; font-weight: 700; margin-bottom: 10px; opacity: .9; }
+.ix-title {
+  font-size: 32px; font-weight: 800; letter-spacing: 1.5px; text-align: center; margin-bottom: 10px;
+  background: linear-gradient(92deg, #ffffff 0%, #a7dbff 42%, #4aa8ff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.ix-sub { font-size: 14.5px; color: #9db6dc; max-width: 660px; margin: 0 auto; }
+.ix-stats { display: flex; gap: 14px; justify-content: center; margin: 26px 0 4px; flex-wrap: wrap; }
+.ix-stat { min-width: 132px; padding: 12px 18px; border-radius: 14px; background: rgba(255,255,255,.055); border: 1px solid rgba(120,170,255,.2); }
+.ix-stat b { display: block; font-size: 26px; font-weight: 800; color: #fff; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.ix-stat span { font-size: 12px; color: #8ea9d0; }
+.ix-tabs { display: flex; gap: 9px; justify-content: center; flex-wrap: wrap; margin: 28px 0 26px; position: relative; }
+.ix-tab {
+  cursor: pointer; padding: 9px 17px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  color: #a7c0e8; background: rgba(255,255,255,.05); border: 1px solid rgba(120,170,255,.2);
+  transition: all .25s ease; user-select: none;
+}
+.ix-tab:hover { transform: translateY(-2px); color: #fff; background: rgba(74,168,255,.14); border-color: rgba(120,190,255,.55); }
+.ix-tab.active { color: #04122a; background: linear-gradient(135deg, #9dd7ff, #4aa8ff); border-color: transparent; box-shadow: 0 8px 24px rgba(74,168,255,.42); }
+.ix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(285px, 1fr)); gap: 13px; position: relative; min-height: 120px; }
+.ix-gtitle { grid-column: 1 / -1; font-size: 13px; font-weight: 800; color: #8fd0ff; letter-spacing: 1px; margin: 16px 0 0; padding-left: 2px; }
+.ix-gtitle:first-child { margin-top: 0; }
+.ix-card {
+  position: relative; padding: 15px 16px 14px 18px; border-radius: 14px;
+  background: linear-gradient(155deg, rgba(255,255,255,.09), rgba(255,255,255,.032));
+  border: 1px solid rgba(120,170,255,.18);
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .45s ease, transform .4s ease, border-color .25s, box-shadow .25s;
+}
+.ix-card.in { opacity: 1; transform: none; }
+.ix-card.in:hover { transform: translateY(-3px); border-color: rgba(120,190,255,.55); box-shadow: 0 12px 32px rgba(24,86,190,.3); }
+.ix-card::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(150,205,255,.65), transparent); opacity: .55; }
+.ix-card.long::before {
+  content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, #ff6b86, #ffa4b6);
+  box-shadow: 0 0 16px rgba(255,107,134,.75);
+  animation: ixPulse 2.4s ease-in-out infinite;
+}
+@keyframes ixPulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+.ix-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ix-op { font-size: 15px; font-weight: 700; color: #fff; }
+.ix-tag { flex: 0 0 auto; font-size: 10.5px; font-weight: 800; letter-spacing: .6px; padding: 2px 7px; border-radius: 6px; }
+.ix-tag.long { color: #ffa9bb; background: rgba(255,94,124,.16); border: 1px solid rgba(255,94,124,.38); }
+.ix-tag.tap { color: #9bd8ff; background: rgba(74,168,255,.14); border: 1px solid rgba(74,168,255,.34); }
+.ix-tag.info { color: #c6d4ea; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); }
+.ix-path { margin-top: 7px; font-size: 12px; color: #86a2cb; font-family: ui-monospace, Menlo, Consolas, monospace; line-height: 1.5; }
+.ix-res { margin-top: 5px; font-size: 13.5px; color: #cfdcf2; line-height: 1.65; }
+.ix-foot {
+  margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(120,170,255,.16);
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  font-size: 12.5px; color: #93abcf; text-align: center;
+}
+.ix-dot { width: 8px; height: 8px; border-radius: 50%; background: #ff6b86; animation: ixRipple 1.8s infinite; }
+@keyframes ixRipple {
+  0% { box-shadow: 0 0 0 0 rgba(255,107,134,.6); }
+  70% { box-shadow: 0 0 0 10px rgba(255,107,134,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,107,134,0); }
+}
+.ix-more { color: #8fd0ff; font-weight: 700; text-decoration: none; }
+.ix-more:hover { color: #fff; }
+@media (max-width: 680px) {
+  .ix-wrap { padding: 34px 18px 24px; border-radius: 18px; }
+  .ix-title { font-size: 24px; }
+  .ix-sub { font-size: 13.5px; }
+  .ix-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+  .ix-tabs::-webkit-scrollbar { display: none; }
+  .ix-tab { flex: 0 0 auto; }
+  .ix-grid { grid-template-columns: 1fr; }
+  .ix-stat { min-width: 108px; padding: 10px 14px; }
+  .ix-stat b { font-size: 22px; }
+}
+/* ===== 页面图集分组 ===== */
+.gal-group { margin-bottom: 38px; }
+.gal-group:last-child { margin-bottom: 0; }
+.gal-title { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 800; color: #1e5eff; margin: 0 0 16px; }
+.gal-title em { font-style: normal; font-size: 12px; font-weight: 700; color: #6b7280; background: #eef4ff; border-radius: 999px; padding: 2px 10px; }
+.gal-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, #dbe7ff, transparent); }
 </style>
 </head>
 <body>
@@ -214,22 +320,87 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
     </div>
   </div>
 
+  <!-- 全站交互总表（卖点区块） -->
+  <div class="section interact-sec" id="interactions">
+    <div class="ix-wrap">
+      <div class="ix-glow"></div>
+      <div class="ix-head">
+        <div class="ix-eyebrow">INTERACTION MAP</div>
+        <h2 class="ix-title">全站交互总表</h2>
+        <p class="ix-sub">App 里大量功能没有按钮——长按文字、长按卡片、点热区才会出现。这张表把每个能操作的位置都列出来，点模块标签即可筛选。</p>
+        <div class="ix-stats">
+          <div class="ix-stat"><b data-num="0">0</b><span>大功能模块</span></div>
+          <div class="ix-stat"><b data-num="0">0</b><span>可操作交互点</span></div>
+          <div class="ix-stat"><b data-num="0">0</b><span>处长按入口</span></div>
+        </div>
+      </div>
+      <div class="ix-tabs" id="ixTabs"></div>
+      <div class="ix-grid" id="ixGrid"></div>
+      <div class="ix-foot">
+        <span class="ix-dot"></span>
+        <span>带「长按」标签的项没有按钮，按住约半秒松手即可</span>
+        <a href="guide.html#十主界面与五个标签" class="ix-more">查看完整说明书 →</a>
+      </div>
+    </div>
+  </div>
+
   <!-- 页面截图 -->
   <div class="section">
     <h2>页面预览</h2>
-    <p class="sub">各主要页面实机截图</p>
-    <div class="gallery">
-      <div class="shot"><img src="screens/01_splash.png" alt="激活面板"><div class="cap">激活面板<span>软件授权管理</span></div></div>
-      <div class="shot"><img src="screens/02_splash_bg.png" alt="启动页"><div class="cap">启动页<span>个人所得税 · 2 秒过渡</span></div></div>
-      <div class="shot"><img src="screens/03_home_loggedin.png" alt="首页"><div class="cap">首页<span>搜索 · 公告 · 年度汇算</span></div></div>
-      <div class="shot"><img src="screens/04_profile_loggedin.png" alt="我的-登录后"><div class="cap">我的 · 已登录<span>个人信息 · 统计卡片</span></div></div>
-      <div class="shot"><img src="screens/05_income_tax.png" alt="收入纳税明细筛选"><div class="cap">收入纳税明细 · 筛选<span>年度与所得类型选择</span></div></div>
-      <div class="shot"><img src="screens/06_income_tax_results.png" alt="收入纳税明细结果"><div class="cap">收入纳税明细 · 结果<span>收入/税额合计 + 按月卡片</span></div></div>
-      <div class="shot"><img src="screens/07_login.png" alt="登录页"><div class="cap">登录页<span>账号密码 + 滑块验证</span></div></div>
-      <div class="shot"><img src="screens/08_profile_notloggedin.png" alt="我的-未登录"><div class="cap">我的 · 未登录<span>注册 / 登录入口</span></div></div>
-      <div class="shot"><img src="screens/09_license_apply.png" alt="申请授权"><div class="cap">申请授权<span>价格表 · 优惠码 · 设备码 · 付款指引</span></div></div>
-      <div class="shot"><img src="screens/10_about.png" alt="关于&更新"><div class="cap">关于 & 更新<span>帮助与反馈 · 版本信息 · 首页图片管理</span></div></div>
-      <div class="shot"><img src="screens/11_feedback.png" alt="意见反馈"><div class="cap">意见反馈<span>问题反馈 · 功能建议 · 直达管理员</span></div></div>
+    <p class="sub">30 张实机截图 · 从启动到授权、从明细到家庭档案，覆盖全部页面与关键交互</p>
+
+    <div class="gal-group">
+      <div class="gal-title">启动与主导航<em>10 张</em></div>
+      <div class="gallery">
+        <div class="shot"><img src="screens/35_splash.png" alt="启动页" loading="lazy"><div class="cap">启动页<span>2 秒过渡 · 国家税务总局主办</span></div></div>
+        <div class="shot"><img src="screens/34_disclaimer.png" alt="免责声明门" loading="lazy"><div class="cap">免责声明门<span>首次启动 · 5 条要点 + 双按钮</span></div></div>
+        <div class="shot"><img src="screens/37_trial_limit.png" alt="未授权提示" loading="lazy"><div class="cap">未授权提示<span>试用领完 · 引导输入激活码</span></div></div>
+        <div class="shot"><img src="screens/03_home_loggedin.png" alt="首页" loading="lazy"><div class="cap">首页<span>搜索 · 公告 · 年度汇算 · 常用服务</span></div></div>
+        <div class="shot"><img src="screens/12_todo.png" alt="待办" loading="lazy"><div class="cap">待办<span>占位页 · 暂无事项</span></div></div>
+        <div class="shot"><img src="screens/13_services.png" alt="办&查" loading="lazy"><div class="cap">办&查<span>占位页 · 暂无入口</span></div></div>
+        <div class="shot"><img src="screens/14_messages.png" alt="消息" loading="lazy"><div class="cap">消息<span>占位页 · 暂无通知</span></div></div>
+        <div class="shot"><img src="screens/04_profile_loggedin.png" alt="我的已登录" loading="lazy"><div class="cap">我的 · 已登录<span>个人信息 · 统计卡片 · 菜单</span></div></div>
+        <div class="shot"><img src="screens/08_profile_notloggedin.png" alt="我的未登录" loading="lazy"><div class="cap">我的 · 未登录<span>注册 / 登录入口</span></div></div>
+        <div class="shot"><img src="screens/07_login.png" alt="登录页" loading="lazy"><div class="cap">登录页<span>账号密码 + 滑块验证</span></div></div>
+      </div>
+    </div>
+
+    <div class="gal-group">
+      <div class="gal-title">收入纳税明细<em>6 张</em></div>
+      <div class="gallery">
+        <div class="shot"><img src="screens/15_income_query.png" alt="明细查询" loading="lazy"><div class="cap">查询条件<span>年度（可长按设置范围）· 所得类型</span></div></div>
+        <div class="shot"><img src="screens/16_income_results.png" alt="明细结果" loading="lazy"><div class="cap">结果页<span>收入 / 税额合计 + 按月卡片</span></div></div>
+        <div class="shot"><img src="screens/17_income_detail.png" alt="明细详情" loading="lazy"><div class="cap">明细详情<span>收入 · 税额 · 基础情况 · 扣除明细</span></div></div>
+        <div class="shot"><img src="screens/33_income_empty.png" alt="空状态" loading="lazy"><div class="cap">空状态<span>该年度无记录 · 点击或长按新增</span></div></div>
+        <div class="shot"><img src="screens/38_income_form.png" alt="新增表单" loading="lazy"><div class="cap">新增 / 修改表单<span>基本信息 6 项 + 详情信息</span></div></div>
+        <div class="shot"><img src="screens/39_income_form_fields.png" alt="表单下部" loading="lazy"><div class="cap">表单下半部<span>扣除与申报字段 · 保存按钮固定</span></div></div>
+      </div>
+    </div>
+
+    <div class="gal-group">
+      <div class="gal-title">个人信息与家庭档案<em>10 张</em></div>
+      <div class="gallery">
+        <div class="shot"><img src="screens/18_personal.png" alt="个人信息" loading="lazy"><div class="cap">个人信息<span>基本信息 · 专项附加扣除 · 其他证件</span></div></div>
+        <div class="shot"><img src="screens/19_personal_basic.png" alt="基本信息" loading="lazy"><div class="cap">基本信息<span>姓名 / 证件号长按可改</span></div></div>
+        <div class="shot"><img src="screens/20_personal_taxbenefit.png" alt="专项附加扣除" loading="lazy"><div class="cap">专项附加扣除<span>减免备案 · 可新增</span></div></div>
+        <div class="shot"><img src="screens/21_personal_otherid.png" alt="其他证件" loading="lazy"><div class="cap">其他证件<span>证件类型与号码</span></div></div>
+        <div class="shot"><img src="screens/22_family.png" alt="家庭成员" loading="lazy"><div class="cap">家庭成员<span>成员列表 · 长按删除</span></div></div>
+        <div class="shot"><img src="screens/23_family_add.png" alt="新增家庭成员" loading="lazy"><div class="cap">新增家庭成员<span>姓名 / 证件号必填</span></div></div>
+        <div class="shot"><img src="screens/24_bankcard.png" alt="银行卡" loading="lazy"><div class="cap">银行卡<span>卡号脱敏 · 长按删除</span></div></div>
+        <div class="shot"><img src="screens/25_bankcard_add.png" alt="新增银行卡" loading="lazy"><div class="cap">新增银行卡<span>卡号 + 所属银行</span></div></div>
+        <div class="shot"><img src="screens/26_employment.png" alt="任职受雇" loading="lazy"><div class="cap">任职受雇<span>单位列表 · 长按改 / 复制 / 删</span></div></div>
+        <div class="shot"><img src="screens/27_employment_edit.png" alt="编辑任职受雇" loading="lazy"><div class="cap">编辑任职受雇<span>单位名称等信息</span></div></div>
+      </div>
+    </div>
+
+    <div class="gal-group">
+      <div class="gal-title">授权与设置<em>4 张</em></div>
+      <div class="gallery">
+        <div class="shot"><img src="screens/09_license_apply.png" alt="申请授权" loading="lazy"><div class="cap">申请授权<span>价格表 · 优惠码 · 设备码 · 付款指引</span></div></div>
+        <div class="shot"><img src="screens/28_about.png" alt="关于与更新" loading="lazy"><div class="cap">关于 &amp; 更新<span>版本号 · 反馈 · 首页图片管理</span></div></div>
+        <div class="shot"><img src="screens/29_hotspots.png" alt="热区调整" loading="lazy"><div class="cap">热区调整<span>拖动色块对齐点击区域</span></div></div>
+        <div class="shot"><img src="screens/30_feedback.png" alt="意见反馈" loading="lazy"><div class="cap">意见反馈<span>问题反馈 · 直达管理员</span></div></div>
+      </div>
     </div>
   </div>
 
@@ -360,6 +531,196 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
     <a href="mailto:531707@gmail.com" style="color:#6b7280;text-decoration:none;">531707@gmail.com</a>
   </div>
 </footer>
+
+<script>
+(function () {
+  var DATA = [
+    {
+      name: '启动 · 授权 · 试用', items: [
+        ['同意免责声明', 'tap', '首次启动 → 点「同意并继续」', '记录同意版本，进入启动分流'],
+        ['看完整免责声明', 'tap', '声明页 → 完整版链接', '浏览器打开 12 节全文'],
+        ['免费试用', 'tap', '未激活且可领时自动出现', '顶部横幅显示倒计时，按真实时间递减'],
+        ['立即解锁', 'tap', '点试用横幅右侧「立即解锁」', '打开激活面板，可输码或申请授权'],
+        ['断网宽限', 'info', '试用中断网 / 无网', '横幅变「试用已暂停」，15 秒宽限，恢复联网继续'],
+        ['输入激活码', 'tap', '激活面板粘贴 → 点「激活软件」', '提示到期时间与剩余天数，进入主界面'],
+        ['续期 / 解绑', 'tap', '我的 → 我要咨询 / 关于页', '打开续期申请，或提交解绑申请']
+      ]
+    },
+    {
+      name: '首页 · 五个标签', items: [
+        ['切换标签', 'tap', '底部「首页 / 待办 / 办&查 / 消息 / 我的」', '切换页面，当前标签文字与图标变蓝'],
+        ['进收入纳税明细', 'tap', '首页 → 点「收入纳税明细」服务入口', '跳到收入纳税明细查询页'],
+        ['年度汇算卡', 'tap', '首页 → 点该卡片区域', '弹出「演示页面」提示，暂无真实流程'],
+        ['看滚动公告', 'info', '首页顶部橙色公告条', '文字自动横向滚动'],
+        ['改公告文案', 'long', '长按公告条约 0.4 秒', '弹编辑框，保存后提示「首页公告已更新」'],
+        ['换首页背景图', 'tap', '我的 → 关于&更新 → 上传替换', '从相册选图，按原比例显示，长图可上下滑'],
+        ['对齐点击热区', 'tap', '关于页 → 调整热区', '拖动热区框，保存后首页点击位置随之变化'],
+        ['三个占位页', 'info', '待办 / 办&查 / 消息', '空白占位页，只显示一行字，不是加载失败']
+      ]
+    },
+    {
+      name: '我的 · 个人中心', items: [
+        ['登录', 'tap', '未登录点头像区或「注册 / 登录」', '进登录页'],
+        ['改姓名', 'long', '长按姓名那一行', '弹输入框，改完点确定'],
+        ['改纳税人识别号', 'long', '长按识别号那一行（脱敏显示）', '弹输入框，改完点确定'],
+        ['改家庭成员数量', 'tap', '点统计卡最左那格', '数字输入弹窗'],
+        ['看任职受雇', 'tap', '点统计卡中间那格', '跳到任职受雇列表'],
+        ['改银行卡数量', 'tap', '点统计卡最右那格', '数字输入弹窗'],
+        ['我要咨询', 'tap', '菜单「我要咨询」', '打开激活管理面板（含续期、解绑申请）'],
+        ['关于 & 更新', 'tap', '菜单「关于&更新」', '进关于页（版本、反馈、图片管理）'],
+        ['预留菜单', 'info', '切换关怀版 / 安全中心 / 帮助中心', '目前点了没动作，属预留位']
+      ]
+    },
+    {
+      name: '收入纳税明细', items: [
+        ['设置年份范围', 'long', '长按左侧「年度」两个字', '弹「设置年份范围」，填起止年后确定'],
+        ['换年份', 'long', '长按右侧年份数字（如「2026」）', '弹年份列表，点选后确定生效'],
+        ['勾选所得类型', 'tap', '点每个类型前的圆圈', '勾上 / 取消，决定查询哪些类型'],
+        ['展开更多类型', 'tap', '点「其他类型」/「收起」', '展开或收起完整类型清单'],
+        ['查询', 'tap', '点底部「查询」', '进结果页，算收入合计与已申报税额合计'],
+        ['看单条详情', 'tap', '结果页点任意记录卡', '详情页（申诉、税款计算为演示占位）'],
+        ['改 / 复制 / 删', 'long', '长按任意记录卡', '底部弹出「修改 / 复制 / 删除」三个动作'],
+        ['新增记录', 'tap', '空状态点一下 / 结果页新增入口', '打开新增表单，弹窗内可上下滑']
+      ]
+    },
+    {
+      name: '个人信息 · 家庭 · 银行卡 · 任职', items: [
+        ['改基本信息', 'long', '长按姓名或证件号行', '弹窗修改，确定后保存'],
+        ['专项附加扣除', 'tap', '个人信息 → 专项附加扣除 → 新增', '选情形、填信息后保存备案'],
+        ['其他证件', 'tap', '个人信息 → 其他证件 → 新增', '选证件类型、填号码后保存'],
+        ['新增家庭成员', 'tap', '家庭成员 → 右上角新增', '姓名、证件号必填'],
+        ['删家庭成员', 'long', '长按家庭成员卡片', '二次确认后删除'],
+        ['新增银行卡', 'tap', '银行卡 → 新增', '填卡号、选银行后保存'],
+        ['删银行卡', 'long', '长按银行卡卡片', '二次确认后删除'],
+        ['任职受雇三动作', 'long', '长按单位卡片', '修改 / 复制 / 删除；仅剩一条时禁止删']
+      ]
+    },
+    {
+      name: '关于 & 更新 · 登录', items: [
+        ['看版本', 'tap', '我的 → 关于&更新', '显示应用名称与版本号'],
+        ['意见反馈', 'tap', '关于页 → 意见反馈', '少于 5 个字会提示补足'],
+        ['上传替换背景图', 'tap', '关于页 → 上传替换', '即时替换，显示来源、像素尺寸、DPI、文件大小'],
+        ['调整热区', 'tap', '关于页 → 调整热区', '拖动对齐新图，保存提示「热区配置已保存」'],
+        ['恢复默认图', 'tap', '关于页 → 恢复默认（仅自定义图时出现）', '二次确认后回到内置图'],
+        ['恢复默认热区', 'tap', '调整热区页 → 恢复默认', '二次确认后热区回出厂位置'],
+        ['登录', 'tap', '账号（手机号/证件号）+ 密码 → 拖滑块', '未完成验证提示「请先完成滑动验证」']
+      ]
+    },
+    {
+      name: '上手要点', items: [
+        ['长按识别', 'info', '列表卡片、个人中心文字、公告条、年度与年份', '全部靠长按触发，按住约半秒松手'],
+        ['弹窗关闭', 'info', '点弹窗外灰色区域，或点「取消」', '带「确定 / 保存」的必须先确定才生效'],
+        ['数据落地', 'info', '所有修改', '实时写入本机，卸载或清数据回到初始演示数据'],
+        ['演示占位', 'info', '年度汇算、申诉、批量申诉、税款计算', '会弹「演示占位」提示，属预期行为']
+      ]
+    }
+  ];
+
+  var tabsEl = document.getElementById('ixTabs');
+  var gridEl = document.getElementById('ixGrid');
+  var wrapEl = document.querySelector('.ix-wrap');
+  if (!tabsEl || !gridEl) return;
+
+  var total = 0, longs = 0;
+  DATA.forEach(function (g) {
+    total += g.items.length;
+    g.items.forEach(function (it) { if (it[1] === 'long') longs++; });
+  });
+
+  var TABS = [{ key: 'all', label: '全部 · ' + total }].concat(
+    DATA.map(function (g, i) { return { key: String(i), label: g.name }; })
+  );
+
+  function tagHtml(t) {
+    if (t === 'long') return '<span class="ix-tag long">长按</span>';
+    if (t === 'info') return '<span class="ix-tag info">说明</span>';
+    return '<span class="ix-tag tap">点击</span>';
+  }
+
+  function cardHtml(item, idx) {
+    var cls = item[1] === 'long' ? ' long' : '';
+    return '<div class="ix-card' + cls + '" style="transition-delay:' + (idx * 35) + 'ms">' +
+      '<div class="ix-row"><span class="ix-op">' + item[0] + '</span>' + tagHtml(item[1]) + '</div>' +
+      '<div class="ix-path">' + item[2] + '</div>' +
+      '<div class="ix-res">' + item[3] + '</div>' +
+      '</div>';
+  }
+
+  function render(key) {
+    var html = '', idx = 0;
+    if (key === 'all') {
+      DATA.forEach(function (g) {
+        html += '<div class="ix-gtitle">' + g.name + '</div>';
+        g.items.forEach(function (it) { html += cardHtml(it, idx++); });
+      });
+    } else {
+      DATA[Number(key)].items.forEach(function (it) { html += cardHtml(it, idx++); });
+    }
+    gridEl.innerHTML = html;
+    var cards = gridEl.querySelectorAll('.ix-card');
+    requestAnimationFrame(function () {
+      setTimeout(function () {
+        Array.prototype.forEach.call(cards, function (c) { c.classList.add('in'); });
+      }, 40);
+    });
+    setTimeout(function () {
+      Array.prototype.forEach.call(cards, function (c) { c.style.transitionDelay = '0ms'; });
+    }, 900 + idx * 35);
+  }
+
+  function buildTabs() {
+    var html = '';
+    TABS.forEach(function (t, i) {
+      html += '<div class="ix-tab' + (i === 0 ? ' active' : '') + '" data-key="' + t.key + '">' + t.label + '</div>';
+    });
+    tabsEl.innerHTML = html;
+    tabsEl.addEventListener('click', function (e) {
+      var el = e.target.closest ? e.target.closest('.ix-tab') : null;
+      if (!el) return;
+      Array.prototype.forEach.call(tabsEl.querySelectorAll('.ix-tab'), function (b) { b.classList.remove('active'); });
+      el.classList.add('active');
+      render(el.getAttribute('data-key'));
+    });
+  }
+
+  function countUp(el, to, dur) {
+    var start = null;
+    function tick(now) {
+      if (start === null) start = now;
+      var p = Math.min(1, (now - start) / dur);
+      var ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(to * ease);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = to;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var statsDone = false;
+  function runStats() {
+    if (statsDone) return;
+    statsDone = true;
+    var nums = [DATA.length, total, longs];
+    Array.prototype.forEach.call(wrapEl.querySelectorAll('[data-num]'), function (el, i) {
+      countUp(el, nums[i], 900);
+    });
+  }
+
+  buildTabs();
+  render('all');
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { runStats(); io.disconnect(); }
+      });
+    }, { threshold: 0.25 });
+    io.observe(wrapEl);
+  } else {
+    runStats();
+  }
+})();
+</script>
 
 </body>
 </html>
