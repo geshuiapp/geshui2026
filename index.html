@@ -347,7 +347,7 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
   <!-- 页面截图 -->
   <div class="section">
     <h2>页面预览</h2>
-    <p class="sub">18 张实机截图 · 从启动到授权、从明细到家庭档案，覆盖全部核心页面与关键交互</p>
+    <p class="sub">14 张实机截图 · 从启动到授权、从明细到任职受雇，覆盖全部可操作页面与关键交互</p>
 
     <div class="gal-group">
       <div class="gal-title">启动与主导航<em>5 张</em></div>
@@ -371,12 +371,8 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
     </div>
 
     <div class="gal-group">
-      <div class="gal-title">个人信息与家庭档案<em>6 张</em></div>
+      <div class="gal-title">任职受雇<em>2 张</em></div>
       <div class="gallery">
-        <div class="shot"><img src="screens/18_personal.png" alt="个人信息" loading="lazy"><div class="cap">个人信息<span>可享税收优惠 · 其他身份证件</span></div></div>
-        <div class="shot"><img src="screens/22_family.png" alt="家庭成员" loading="lazy"><div class="cap">家庭成员<span>成员列表 · 长按删除</span></div></div>
-        <div class="shot"><img src="screens/23_family_add.png" alt="新增家庭成员" loading="lazy"><div class="cap">新增家庭成员<span>姓名 / 证件号必填</span></div></div>
-        <div class="shot"><img src="screens/24_bankcard.png" alt="银行卡" loading="lazy"><div class="cap">银行卡<span>卡号脱敏 · 长按删除</span></div></div>
         <div class="shot"><img src="screens/26_employment.png" alt="任职受雇" loading="lazy"><div class="cap">任职受雇<span>单位列表 · 长按改 / 复制 / 删</span></div></div>
         <div class="shot"><img src="screens/27_employment_edit.png" alt="编辑任职受雇" loading="lazy"><div class="cap">编辑任职受雇<span>单位名称等信息</span></div></div>
       </div>
@@ -458,7 +454,7 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
       <ul>
         <li><strong>未登录</strong>：灰色头像，点击「注册 / 登录」进入登录页</li>
         <li><strong>已登录</strong>：显示姓名、脱敏纳税人识别号、家庭成员/任职受雇/银行卡数量</li>
-        <li><strong>个人信息</strong>：姓名、识别号长按可修改；家庭成员、银行卡、专项附加扣除可增删改</li>
+        <li><strong>个人信息</strong>：姓名、识别号长按可修改；专项附加扣除从首页卡片进入，可新增备案</li>
         <li><strong>任职受雇</strong>：长按企业卡片可修改、删除、复制</li>
         <li><strong>关于 &amp; 更新</strong>：版本号、意见反馈、申请授权/续期、首页背景图</li>
       </ul>
@@ -572,14 +568,9 @@ footer { text-align: center; padding: 40px 20px; color: #9ca3af; font-size: 13px
       ]
     },
     {
-      name: '个人信息 · 家庭 · 银行卡 · 任职', items: [
-        ['专项附加扣除', 'tap', '个人信息 → 专项附加扣除 → 新增', '选情形、填信息后保存备案'],
-        ['其他证件', 'tap', '个人信息 → 其他证件 → 新增', '选证件类型、填号码后保存'],
-        ['新增家庭成员', 'tap', '家庭成员 → 右上角新增', '姓名、证件号必填'],
-        ['删家庭成员', 'long', '长按家庭成员卡片', '二次确认后删除'],
-        ['新增银行卡', 'tap', '银行卡 → 新增', '填卡号、选银行后保存'],
-        ['删银行卡', 'long', '长按银行卡卡片', '二次确认后删除'],
-        ['任职受雇三动作', 'long', '长按单位卡片', '修改 / 复制 / 删除；仅剩一条时禁止删']
+      name: '专项附加扣除 · 任职受雇', items: [
+        ['专项附加扣除', 'tap', '首页 → 专项附加扣除卡片 → 新增', '选情形、填信息后保存备案'],
+        ['任职受雇三动作', 'long', '我的 → 统计卡中间格 → 长按单位卡片', '修改 / 复制 / 删除；仅剩一条时禁止删']
       ]
     },
     {
