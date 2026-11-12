@@ -59,6 +59,7 @@
 | 收入纳税明细 · 筛选 | ![筛选](screens/05_income_tax.png) |
 | 收入纳税明细 · 结果 | ![结果](screens/06_income_tax_results.png) |
 | 申请授权 | ![申请授权](screens/09_license_apply.png) |
+| 意见反馈 | ![意见反馈](screens/11_feedback.png) |
 | 关于 & 更新 | ![关于](screens/10_about.png) |
 
 ## 💰 价格
