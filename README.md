@@ -18,6 +18,8 @@
 
 **[📄 点击查看完整用户使用说明书](https://geshuiapp.github.io/geshui2026/guide.html)**
 
+**[📑 下载图文版用户手册（PDF · 17 页）](https://geshuiapp.github.io/geshui2026/docs/geshui_manual_v1.5.6.pdf)**
+
 内容包括：安装、首次启动免责声明、免费试用、激活、设备码绑定、换机迁移、续期与解绑、各页面操作说明、申请授权、数据保存与清空规则、20 条常见问题。
 
 ## 📝 更新日志
