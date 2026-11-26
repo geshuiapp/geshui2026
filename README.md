@@ -1,8 +1,8 @@
-> ## ⛔ 2026 展示页与下载均已停止
+﻿> ## ⛔ 2026 展示页与下载均已停止
 >
 > 自 2026-11-23 起，geshui2026 的在线展示站、V1.5.6 APK、历史版本 APK 和 PDF 用户手册全部停止公开下载。
 >
-> **请访问 V2.0.8 展示与下载站：[https://geshuiapp.github.io/geshui2027/](https://geshuiapp.github.io/geshui2027/)**
+> **请访问 V2.1.0 展示与下载站：[https://geshuiapp.github.io/geshui2027/](https://geshuiapp.github.io/geshui2027/)**
 >
 > 本仓库仅保留为 2026 历史归档，不再提供安装包或手册文件。
 # 个人所得税 App 复刻版（2026 · 已停止展示与下载）
@@ -17,16 +17,16 @@
 
 2026 的 V1.5.6 APK、全部历史版本 APK 和 PDF 用户手册均已停止公开下载。原 Release 下载链接返回 404，手册文件已从当前仓库移除。
 
-如需 V2.0.8，请访问：
+如需 V2.1.0，请访问：
 
-- **V2.0.8 展示与下载站：** <https://geshuiapp.github.io/geshui2027/>
-- **V2.0.8 发布页：** <https://github.com/geshuiapp/geshui2027/releases/tag/v2.0.8>
+- **V2.1.0 展示与下载站：** <https://geshuiapp.github.io/geshui2027/>
+- **V2.1.0 发布页：** <https://github.com/geshuiapp/geshui2027/releases/tag/v2.1.0>
 
 > 本仓库只保留 2026 历史说明与截图，不再分发任何安装包或手册 PDF。
 
 ## 📖 使用说明书
 
-2026 在线说明书已停止展示，PDF 下载已停止。V2.0.8 说明书请访问：
+2026 在线说明书已停止展示，PDF 下载已停止。V2.1.0 说明书请访问：
 
 - <https://geshuiapp.github.io/geshui2027/guide.html>
 
